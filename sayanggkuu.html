@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uwiiiddd & HanTA ❤️ - Our Endless Love Story</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Handlee&family=Indie+Flower&family=Pinyon+Script&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes confettiFall {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+            100% { transform: translate(var(--endX), calc(100vh + 30px)) rotate(360deg); opacity: 0; }
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px rgba(255,105,180,0.5); }
+            50% { text-shadow: 0 0 20px rgba(255,105,180,0.9); }
+            100% { text-shadow: 0 0 5px rgba(255,105,180,0.5); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes rainbow {
+            0% { color: #ff0000; }
+            14% { color: #ff7f00; }
+            28% { color: #ffff00; }
+            42% { color: #00ff00; }
+            57% { color: #0000ff; }
+            71% { color: #4b0082; }
+            85% { color: #9400d3; }
+            100% { color: #ff0000; }
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+        @keyframes fallingStar {
+            0% { transform: translate(0, -100px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translate(var(--endX), calc(100vh + 100px)) rotate(720deg); opacity: 0; }
+        }
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .heartbeat {
+            animation: heartbeat 1.5s infinite;
+        }
+        .glow-text {
+            animation: glow 2s infinite;
+        }
+        .slide-in {
+            animation: slideIn 1s ease-out forwards;
+        }
+        .rotate {
+            animation: rotate 10s linear infinite;
+        }
+        .rainbow {
+            animation: rainbow 5s linear infinite;
+        }
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        .twinkle {
+            animation: twinkle 2s infinite;
+        }
+        .falling-star {
+            animation: fallingStar 5s linear infinite;
+        }
+        .cute-btn {
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .cute-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .message-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            border-radius: 20px;
+            position: relative;
+        }
+        .message-box::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: #ff9a9e transparent;
+        }
+        .sticker {
+            transition: all 0.3s;
+        }
+        .sticker:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .polaroid {
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: all 0.3s;
+            position: relative; /* For edit/delete buttons */
+        }
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        .polaroid-actions {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            display: flex;
+            gap: 5px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff6b8b;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 25px;
+            width: 2px;
+            height: calc(100% - 25px);
+            background: #ff6b8b;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .timeline-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 5px;
+        }
+        .music-player {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+        .progress-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+        }
+        .progress {
+            height: 100%;
+            background: white;
+            border-radius: 3px;
+            width: 0%;
+        }
+        .love-letter {
+            background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(-1deg);
+            font-family: 'Handlee', cursive;
+            position: relative;
+        }
+        .love-letter::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff6b8b" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat;
+            opacity: 0.3;
+        }
+        .scratch-off {
+            position: relative;
+            overflow: hidden;
+            cursor: grab;
+        }
+        .scratch-off-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .scratch-off.revealed .scratch-off-canvas {
+            display: none;
+        }
+        .diary-entry {
+            background: url('https://www.transparenttextures.com/patterns/notebook.png');
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(0.5deg);
+            font-family: 'Indie Flower', cursive;
+            position: relative;
+        }
+        .diary-entry::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff6b8b" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>') no-repeat;
+            opacity: 0.3;
+        }
+        .date-stamp {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-family: 'Courier New', monospace;
+            color: #888;
+            font-size: 0.8rem;
+        }
+        .coupon {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border: 2px dashed #ff6b8b;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .coupon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 10px,
+                #ff6b8b 10px,
+                #ff6b8b 20px
+            );
+        }
+        .coupon::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: repeating-linear-gradient(
+                to right,
+                transparent,
+                transparent 10px,
+                #ff6b8b 10px,
+                #ff6b8b 20px
+            );
+        }
+        .coupon-actions {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            display: flex;
+            gap: 5px;
+        }
+        .wishlist-item {
+            background: rgba(255,255,255,0.7);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            position: relative; /* For edit/delete */
+        }
+        .wishlist-item:hover {
+            transform: translateX(5px);
+            background: rgba(255,255,255,0.9);
+        }
+        .wishlist-item input[type="checkbox"] {
+            margin-right: 15px;
+            transform: scale(1.5);
+            accent-color: #ff6b8b;
+        }
+        .wishlist-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+        .wishlist-actions {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none; /* Hidden by default */
+        }
+        .wishlist-item:hover .wishlist-actions {
+            display: flex;
+        }
+        .countdown-item {
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            min-width: 80px;
+        }
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b8b;
+        }
+        .countdown-label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+        .petal {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+            z-index: 0;
+        }
+        .custom-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        .custom-font-2 {
+            font-family: 'Pacifico', cursive;
+        }
+        .custom-font-3 {
+            font-family: 'Pinyon Script', cursive;
+        }
+        .custom-font-4 {
+            font-family: 'Sacramento', cursive;
+        }
+        .interactive-photo {
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        .interactive-photo:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .interactive-photo:active {
+            transform: scale(0.95);
+        }
+        .love-meter-needle {
+            transform-origin: bottom center;
+            transform: rotate(-90deg);
+            transition: transform 1s ease-out;
+        }
+        .love-quiz-option {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .love-quiz-option:hover {
+            background-color: #ffe6eb;
+        }
+        .love-quiz-option.selected {
+            background-color: #ffb6c1;
+            border-color: #ff6b8b;
+        }
+        .love-quiz-option.correct {
+            background-color: #b5e8b5;
+            border-color: #5cb85c;
+        }
+        .love-quiz-option.incorrect {
+            background-color: #ffb6b6;
+            border-color: #ff6b6b;
+        }
+        .map-container {
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .map-marker {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff0000"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') no-repeat center;
+            background-size: contain;
+            transform: translate(-50%, -100%); /* Adjust to position correctly */
+            cursor: pointer;
+            z-index: 5;
+        }
+        .map-marker-tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transform: translate(-50%, -150%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .map-marker:hover .map-marker-tooltip {
+            opacity: 1;
+        }
+        .memory-jar {
+            background: url('https://www.transparenttextures.com/patterns/notebook.png');
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .memory-card {
+            background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transform: rotate(var(--rotate-deg));
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .memory-card:hover {
+            transform: rotate(0deg) scale(1.02);
+            z-index: 2;
+        }
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23fff" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center center;
+            background-size: contain;
+            opacity: 0.4;
+        }
+        .memory-actions {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            display: flex;
+            gap: 5px;
+        }
+        .qa-container {
+            background: linear-gradient(135deg, #e0f2f7 0%, #b3e5fc 100%);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .qa-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            border-left: 5px solid #64b5f6;
+            position: relative;
+        }
+        .qa-item::before {
+            content: 'Q:';
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            font-weight: bold;
+            color: #2196f3;
+            font-size: 1.2rem;
+        }
+        .qa-item .question {
+            margin-left: 25px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .qa-item .answer {
+            margin-left: 25px;
+            color: #555;
+            font-style: italic;
+        }
+        .qa-item::after {
+            content: 'A:';
+            position: absolute;
+            top: 55px; /* Adjust based on question height */
+            left: 10px;
+            font-weight: bold;
+            color: #f06292;
+            font-size: 1.2rem;
+        }
+        .qa-actions {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            display: flex;
+            gap: 5px;
+        }
+        .diary-entry-item { /* Renamed for clarity with general diary-entry section */
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            border-left: 5px solid #ff6b8b;
+            position: relative;
+        }
+        .diary-entry-item .date-stamp {
+            position: static; /* Override parent style */
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: #999;
+        }
+        .diary-actions {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 min-h-screen font-sans overflow-x-hidden">
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 text-pink-200 text-6xl opacity-20 rotate">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="absolute top-1/3 right-1/4 text-purple-200 text-8xl opacity-20 rotate" style="animation-direction: reverse;">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="absolute bottom-1/4 left-1/3 text-red-200 text-7xl opacity-20 rotate">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="absolute top-1/5 right-1/5 text-yellow-200 text-5xl opacity-20 rotate" style="animation-delay: 2s;">
+            <i class="fas fa-star"></i>
+        </div>
+        
+        <div id="petals-container"></div>
+
+        <div id="stars-container"></div>
+    </div>
+
+    <nav class="fixed top-0 left-0 right-0 bg-white bg-opacity-90 shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-pink-600 custom-font">
+                Uwiiiddd & HanTA <span class="text-red-500">❤️</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#hero" class="text-pink-600 hover:text-pink-800 transition">Home</a>
+                <a href="#story" class="text-pink-600 hover:text-pink-800 transition">Our Story</a>
+                <a href="#gallery" class="text-pink-600 hover:text-pink-800 transition">Gallery</a>
+                <a href="#memories" class="text-pink-600 hover:text-pink-800 transition">Memories</a>
+                <a href="#future" class="text-pink-600 hover:text-pink-800 transition">Future</a>
+                <a href="#messages" class="text-pink-600 hover:text-pink-800 transition">Messages</a>
+                <a href="#about-me" class="text-pink-600 hover:text-pink-800 transition">About us</a>
+            </div>
+            <button class="md:hidden text-pink-600" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <div class="md:hidden hidden bg-white w-full px-4 py-2" id="mobile-menu">
+            <a href="#hero" class="block py-2 text-pink-600 hover:text-pink-800 transition">Home</a>
+            <a href="#story" class="block py-2 text-pink-600 hover:text-pink-800 transition">Our Story</a>
+            <a href="#gallery" class="block py-2 text-pink-600 hover:text-pink-800 transition">Gallery</a>
+            <a href="#memories" class="block py-2 text-pink-600 hover:text-pink-800 transition">Memories</a>
+            <a href="#future" class="block py-2 text-pink-600 hover:text-pink-800 transition">Future</a>
+            <a href="#messages" class="block py-2 text-pink-600 hover:text-pink-800 transition">Messages</a>
+            <a href="#about-me" class="block py-2 text-pink-600 hover:text-pink-800 transition">About us</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 max-w-6xl relative z-10 mt-16">
+        <section id="hero" class="text-center mb-20 relative py-10 rounded-3xl bg-gradient-to-r from-pink-100 to-purple-100 shadow-lg border-4 border-pink-200 overflow-hidden">
+            <div class="absolute -top-2 -left-2 text-red-400 text-2xl float">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="absolute -top-2 -right-2 text-red-400 text-2xl float" style="animation-delay: 0.5s;">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="absolute -bottom-2 -left-6 text-red-400 text-2xl float" style="animation-delay: 1s;">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="absolute -bottom-2 -right-6 text-red-400 text-2xl float" style="animation-delay: 1.5s;">
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <div class="relative z-10">
+                <h1 class="text-6xl font-bold text-pink-600 mb-4 heartbeat glow-text custom-font-2">Uwiiiddd & HanTA! <span class="text-red-500 rainbow">❤️</span></h1>
+                <p class="text-pink-500 text-2xl mb-6 custom-font-3">Sebuah ruang kecil yang nyimpen semua kenangan kita.</p>
+                
+                <div class="flex justify-center space-x-4">
+                    <button onclick="startMusic()" class="cute-btn bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full text-lg transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-music mr-2"></i> Lagu ini... cerita kita banget!
+                    </button>
+                    <button onclick="createFloatingHearts(20)" class="cute-btn bg-purple-400 hover:bg-purple-500 text-white px-8 py-3 rounded-full text-lg transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-heart mr-2"></i> Kasih Hati Dong!!
+                    </button>
+                </div>
+                
+                <div class="mt-10 flex justify-center">
+                    <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-pink-300 shadow-xl interactive-photo">
+                        <img src="photo\lovee.jpg" alt="Us together" class="w-full h-full object-cover" id="mainPhoto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="story" class="bg-white p-8 rounded-3xl shadow-2xl mb-16 border-4 border-blue-300 transform rotate-1 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 text-blue-200 text-9xl opacity-20 rotate">
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <h2 class="text-4xl font-bold text-center text-blue-600 mb-8 slide-in custom-font">Cerita Kamu sama Aku <i class="fas fa-history ml-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Setiap langkah, setiap senyuman, setiap kenangan indah membawa kita sampai ke hari ini.</p>
+            
+            <div id="timelineContainer" class="timeline-container pl-6 relative">
+                </div>
+            
+            <div class="text-center mt-12">
+                <button onclick="addTimelineEventPrompt()" class="cute-btn bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg">
+                    <i class="fas fa-plus-circle mr-2"></i> Yuk, Buat Kenangan Baru Lagi
+                </button>
+            </div>
+        </section>
+
+        ---
+
+        <section id="gallery" class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-purple-600 mb-8 slide-in custom-font">Potret-Potret Bahagia Kita <i class="fas fa-camera-retro ml-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Di sini tersimpan semua senyum, sedih dan momen yang nggak akan pernah kita lupakan.</p>
+            
+            <div id="galleryContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+            
+            <div class="text-center mt-10">
+                <button onclick="addPhotoToGalleryPrompt()" class="cute-btn bg-purple-400 hover:bg-purple-500 text-white px-8 py-3 rounded-full text-lg">
+                    <i class="fas fa-plus mr-2"></i> Tambah Foto Baru
+                </button>
+            </div>
+        </section>
+
+        ---
+
+        <section class="bg-white p-8 rounded-3xl shadow-2xl mb-16 transform -rotate-1 border-4 border-purple-300 relative overflow-hidden">
+            <div class="absolute -bottom-10 -left-10 text-purple-200 text-9xl opacity-20 rotate">
+                <i class="fas fa-heart"></i>
+            </div>
+            
+            <h2 class="text-4xl font-bold text-purple-600 mb-6 text-center slide-in custom-font">Sesayang apa kita sih? <i class="fas fa-heart text-red-400 ml-2 heartbeat"></i></h2>
+            <p class="text-center text-gray-600 mb-8 custom-font-4">Cek dulu dong, cinta kita udah ngisi full belum hari ini?</p>
+            
+            <div class="flex flex-col items-center mb-8">
+                <div class="relative w-64 h-64 mb-6">
+                    <img src="photo\love2.png" alt="Love meter" class="w-full h-full">
+                    <div class="love-meter-needle absolute bottom-0 left-1/2 w-1 h-32 bg-red-500 rounded-full" style="transform: rotate(-90deg); transform-origin: bottom center;"></div>
+                </div>
+                
+                <div class="w-full max-w-md">
+                    <div class="flex items-center mb-4">
+                        <span class="text-sm text-purple-500 mr-2">0%</span>
+                        <div class="flex-1 bg-purple-100 rounded-full h-6">
+                            <div id="loveMeter" class="bg-gradient-to-r from-purple-400 to-pink-500 h-6 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <span class="text-sm text-purple-500 ml-2">100%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                <button onclick="addLove(10, 'sweet kiss')" class="cute-btn bg-pink-300 hover:bg-pink-400 text-white py-3 rounded-xl flex items-center justify-center text-sm md:text-base">
+                    <i class="fas fa-kiss-wink-heart mr-2"></i> Kecupan
+                </button>
+                <button onclick="addLove(20, 'heartfelt hug')" class="cute-btn bg-red-300 hover:bg-red-400 text-white py-3 rounded-xl flex items-center justify-center text-sm md:text-base">
+                    <i class="fas fa-hand-holding-heart mr-2"></i> Puk-puk
+                </button>
+                <button onclick="addLove(30, 'surprise gift')" class="cute-btn bg-purple-300 hover:bg-purple-400 text-white py-3 rounded-xl flex items-center justify-center text-sm md:text-base">
+                    <i class="fas fa-gift mr-2"></i> Surprise Gift
+                </button>
+                <button onclick="addLove(40, 'a loving note')" class="cute-btn bg-yellow-300 hover:bg-yellow-400 text-white py-3 rounded-xl flex items-center justify-center text-sm md:text-base">
+                    <i class="fas fa-envelope-open-text mr-2"></i> Penyemangat
+                </button>
+                <button onclick="addLove(50, 'quality time')" class="cute-btn bg-blue-300 hover:bg-blue-400 text-white py-3 rounded-xl flex items-center justify-center text-sm md:text-base">
+                    <i class="fas fa-clock mr-2"></i> Quality Time
+                </button>
+                <button onclick="addLove(100, 'unconditional love')" class="cute-btn bg-green-300 hover:bg-green-400 text-white py-3 rounded-xl flex items-center justify-center text-sm md:text-base">
+                    <i class="fas fa-infinity mr-2"></i> SAYANGGGG BANGETTTT!!
+                </button>
+            </div>
+            
+            <button onclick="measureLove()" class="cute-btn w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white py-4 rounded-xl font-bold text-lg">
+                <i class="fas fa-heartbeat mr-2"></i> Gaperlu di ukur lagi, selalu cinta dan sayangg kok!!
+            </button>
+            
+            <p id="loveResult" class="text-center mt-4 text-purple-600 font-medium text-xl hidden"></p>
+        </section>
+
+        ---
+
+        <section class="love-letter mb-16 p-8">
+            <h2 class="text-4xl font-bold text-pink-600 mb-6 text-center custom-font">Surat Bareng-Bareng</h2>
+            <p class="text-center text-gray-700 mb-8 custom-font-4">Kita yang selalu support satu sama lain..</p>
+            
+            <div id="loveLetterContent" contenteditable="false" class="editable-content focus:outline-none focus:ring-2 focus:ring-pink-300 p-2 rounded-md transition-all duration-200">
+                <p class="mb-4">Dari Kita, untuk Kita,</p>
+                
+                <p class="mb-4 text-justify">
+                    LDR itu nggak gampang, kita tahu banget. Tapi di balik jarak yang jauh antara Jakarta dan Mojokerto, kita berhasil buktiin satu hal—cinta kita kuat banget. Nggak ada pelukan tiap hari, tapi tiap kata, tawa, dan perhatian kecil yang kita kasih ke satu sama lain itu berasa banget hangatnya.
+                </p>
+                
+                <p class="mb-4 text-justify">
+                   Setiap hari kita belajar buat saling ngerti, saling jaga, dan saling percaya. Walau cuma bisa ngelihat lewat layar, tapi hati kita kayak nggak pernah jauh. Bahkan kadang yang paling sederhana kayak "udah makan belum?" atau "udah tidur?" bisa jadi bentuk sayang paling nyata.
+                </p>
+                
+                <p class="mb-4 text-justify">
+                    Kita berdua udah banyak banget ngelewatin momen bareng—meski jaraknya jauh, tapi rasanya deket banget. Kita ngobrolin mimpi-mimpi, saling ngasih semangat pas lagi capek, ketawa bareng hal receh, sampai saling nenangin pas hari-hari berat datang. Dan semua itu bikin hubungan ini makin dalem, makin kuat.
+                </p>
+
+                <p class="mb-4 text-justify">
+                   Kita saling jadi rumah, walaupun rumahnya belum bisa didatengin tiap hari. Tapi kita tahu, rumah itu bukan tempat—tapi orang. Dan kita udah jadi rumah buat satu sama lain.
+                </p>                
+                
+                <p class="mb-4">
+                    Kita tau, suatu hari nanti kita bakal ketemu lagi. Bisa pelukan langsung, jalan bareng, makan bareng, dan ngelewatin hari-hari tanpa layar di tengah-tengah kita. Tapi untuk sekarang, kita terus bareng-bareng ngejalanin ini, tetep saling genggam—walau dari jauh.
+                </p>
+
+                <p class="mb-4">
+                    Cinta ini nggak butuh jarak buat jadi nyata. Karena cinta ini udah jadi bagian dari kita. Dan kita akan terus milih satu sama lain, setiap hari.
+                </p>
+                
+                <p class="mb-4 text-right text-3xl font-bold text-pink-600 custom-font">[HanTA & Uwiiddd]</p>
+            </div>
+            
+            <div class="text-center mt-8">
+                <button id="editLoveLetterBtn" onclick="toggleEditLoveLetter()" class="cute-btn bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full">
+                    <i class="fas fa-edit mr-2"></i> Edit Surat
+                </button>
+                <button onclick="showHiddenMessage()" class="cute-btn bg-purple-400 hover:bg-purple-500 text-white px-8 py-3 rounded-full ml-4">
+                    <i class="fas fa-envelope mr-2"></i> Sedikit Rahasia Buat Kamu Sayanggg..
+                </button>
+            </div>
+        </section>
+        
+
+        ---
+
+        <div id="hiddenMessage" class="hidden bg-white p-8 rounded-3xl shadow-2xl mb-16 border-4 border-red-300">
+            <h2 class="text-3xl font-bold text-center text-red-500 mb-6 custom-font">Spesial Banget Buat Kamu Sengg!</h2>
+            <p class="text-center text-gray-600 mb-6 custom-font-4">Coba digosok pelan-pelan di area abu-abu, biar bisa lihat pesannya anjay</p>
+            
+            <div class="scratch-off bg-pink-100 p-6 rounded-lg text-center flex items-center justify-center relative" id="scratchArea" style="height: 180px;">
+                <canvas id="scratchCanvas" class="scratch-off-canvas" width="600" height="180"></canvas>
+                <p class="text-xl text-pink-600 font-medium hidden custom-font-4" id="secretMessage">
+                    Surprise, sayang!
+                    Aku Sayang Banget-Banget-Banget Sama Kamu,, Mwhehehe❤️
+                </p>
+                <div class="absolute top-2 right-2 text-gray-400">
+                    <i class="fas fa-hand-pointer"></i>
+                </div>
+            </div>
+            
+            <p class="text-center mt-4 text-gray-600 text-sm custom-font-4">Coba Gosok Pake Jari Kamu Ya Sayanggg</p>
+        </div>
+
+        ---
+
+        <section id="future" class="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-3xl shadow-2xl mb-16 border-4 border-blue-300 relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 text-blue-200 text-9xl opacity-20 rotate" style="animation-direction: reverse;">
+                <i class="fas fa-gift"></i>
+            </div>
+            
+            <h2 class="text-4xl font-bold text-center text-blue-600 mb-8 slide-in custom-font">Ini List Kita Kalau Ketemu Nanti <i class="fas fa-lightbulb ml-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Lagi ngebayangin, ngejalanin rencana, dan gak sabar nunggu saat bareng kamu.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-500 mb-4 flex items-center"><i class="fas fa-list-ul mr-2"></i>Wishlist Kita</h3>
+                    <div id="wishlist" class="bg-white p-6 rounded-xl shadow">
+                        <div class="mt-4 flex">
+                            <input type="text" id="newWishInput" placeholder="Add a new dream to our list..." class="flex-1 p-3 border border-gray-300 rounded-lg mr-2 focus:ring-2 focus:ring-pink-300">
+                            <button onclick="addWish()" class="cute-btn bg-pink-400 hover:bg-pink-500 text-white px-4 py-2 rounded-lg">
+                                <i class="fas fa-plus mr-1"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-500 mb-4 flex items-center"><i class="fas fa-hourglass-half mr-2"></i>Hari Anniversary</h3>
+                    <div class="bg-white p-6 rounded-xl shadow">
+                        <p class="text-center text-lg text-gray-700 mb-4">Kita Tentuin gasih?**</p>
+                        <div class="flex justify-around items-center text-center mb-4">
+                            <div class="countdown-item">
+                                <div id="days" class="countdown-number">00</div>
+                                <div class="countdown-label">Hari</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div id="hours" class="countdown-number">00</div>
+                                <div class="countdown-label">Jam</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div id="minutes" class="countdown-number">00</div>
+                                <div class="countdown-label">Menit</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div id="seconds" class="countdown-number">00</div>
+                                <div class="countdown-label">Detik</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <label for="customDate" class="block text-gray-700 text-sm font-bold mb-2">Tentuin Sayang Dsini:</label>
+                            <input type="date" id="customDate" class="p-2 border rounded-lg">
+                            <button onclick="setCustomCountdown()" class="cute-btn bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded-lg ml-2">Set</button>
+                            <button onclick="resetCountdown()" class="cute-btn bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg ml-2 mt-2">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h3 class="text-3xl font-bold text-blue-500 mb-6 text-center custom-font flex items-center justify-center"><i class="fas fa-ticket-alt mr-2"></i>Spesial Kupon Buat Kamnu</h3>
+                <p class="text-center text-gray-600 mb-8 custom-font-4">Kapanpun,, dimanapun,, pakai kupon ini kalau kamu lagi ngerasa gaenak ya sayangg.</p>
+                <div id="couponsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+                <p class="text-center text-gray-600 mt-6 text-sm custom-font-4">Jangan lupa, kupon ini gak pernah kadaluarsa, kayak cintaku ke kamu! 😉</p>
+                <div class="text-center mt-8">
+                    <button onclick="addCouponPrompt()" class="cute-btn bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-lg">
+                        <i class="fas fa-plus-square mr-2"></i> Tambahin Kupon
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="memories" class="bg-pink-100 p-8 rounded-3xl shadow-2xl mb-16 border-4 border-pink-300 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 text-pink-200 text-9xl opacity-20 rotate">
+                <i class="fas fa-flask"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-center text-pink-600 mb-8 slide-in custom-font">Momen Berharga <i class="fas fa-jar mr-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Momen Kecil yang Berharga.</p>
+            
+            <div class="memory-jar p-8">
+                <div id="memoryCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    </div>
+                
+                <div class="mt-8 text-center">
+                    <button onclick="addMemoryCardPrompt()" class="cute-btn bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-lg">
+                        <i class="fas fa-plus-square mr-2"></i> Tambah momen baru
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="bg-gradient-to-br from-red-100 to-pink-100 p-8 rounded-3xl shadow-2xl mb-16 border-4 border-red-300 relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 text-red-200 text-9xl opacity-20 rotate" style="animation-direction: reverse;">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-8 slide-in custom-font">Tempat-Tempat Spesial <i class="fas fa-map-marked-alt ml-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Setiap Tempat Punya Kenangannya Sendiri!</p>
+            
+            <div class="map-container relative">
+                <img src="https://via.placeholder.com/1000x500/FADADD/888888?text=Our+World+of+Memories" alt="Placeholder Map" class="w-full h-full object-cover rounded-xl">
+                
+                <div class="map-overlay">
+                    <p class="text-3xl text-gray-600 font-bold glow-text custom-font-4">Nanti yaa,, jalann-jalann kalau ketemu! ❤️</p>
+                </div>
+
+                <div class="map-marker" style="top: 50%; left: 30%;">
+                    <div class="map-marker-tooltip">Our First Date Cafe</div>
+                </div>
+                <div class="map-marker" style="top: 70%; left: 60%;">
+                    <div class="map-marker-tooltip">Our Favorite Park Bench</div>
+                </div>
+                <div class="map-marker" style="top: 25%; left: 80%;">
+                    <div class="map-marker-tooltip">That Hidden Beach Spot</div>
+                </div>
+                <div class="map-marker" style="top: 40%; left: 15%;">
+                    <div class="map-marker-tooltip">Where we first said "I love you"</div>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 mt-4 text-sm custom-font-4">Kita bakalan ngeexplore banyak tempatt,, Mwhehehe❤️!</p>
+        </section>
+
+        ---
+
+        <section class="qa-container mb-16">
+            <h2 class="text-4xl font-bold text-center text-blue-600 mb-8 slide-in custom-font">Q&A: Semua Tentang Kita! <i class="fas fa-comment-alt ml-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Hal-hal seru yang banyak kita jalani</p>
+            
+            <div id="qaItemsContainer" class="space-y-6">
+                </div>
+            <div class="text-center mt-8">
+                <button onclick="addQaItemPrompt()" class="cute-btn bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 rounded-full text-lg">
+                    <i class="fas fa-question-circle mr-2"></i> Tambah Q&A
+                </button>
+            </div>
+        </section>
+
+        ---
+
+        <section class="music-player p-6 rounded-3xl shadow-2xl mb-16 text-white text-center flex flex-col items-center justify-center">
+            <h2 class="text-3xl font-bold mb-4 custom-font"><i class="fas fa-headphones-alt mr-2"></i> Our Heartfelt Love Song</h2>
+            <p class="text-xl mb-4" id="currentSongTitle">"Perfect" - Ed Sheeran</p>
+            <audio id="ourSong" controls loop class="w-full max-w-md hidden">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="flex items-center space-x-4 mt-4 w-full max-w-md">
+                <button id="playPauseBtn" onclick="togglePlayPause()" class="text-white text-3xl hover:scale-110 transition p-2"><i class="fas fa-play"></i></button>
+                <div class="flex-1">
+                    <div class="progress-bar">
+                        <div class="progress" id="progressBar"></div>
+                    </div>
+                </div>
+                <span id="currentTime" class="text-sm">0:00</span> / <span id="totalTime" class="text-sm">0:00</span>
+            </div>
+            <div class="flex items-center space-x-2 mt-4">
+                <i class="fas fa-volume-down text-white"></i>
+                <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5" oninput="setVolume(this.value)" class="w-24 accent-white">
+                <i class="fas fa-volume-up text-white"></i>
+            </div>
+            <div class="mt-4">
+                <button onclick="changeSongPrompt()" class="cute-btn bg-white bg-opacity-30 hover:bg-opacity-50 text-white px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-sync-alt mr-1"></i> Ganti Lagu
+                </button>
+            </div>
+            <p class="text-sm opacity-80 mt-2 custom-font-4">Dengerin dehh, mungkin lagu ini bisa ngegambarin kita</p>
+        </section>
+
+        ---
+
+        <section class="diary-entry p-8 rounded-3xl shadow-2xl mb-16">
+            <h2 class="text-4xl font-bold text-pink-600 mb-6 text-center custom-font">Little Space Diary</h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Cerita random, perasaan tulus, dan momen-momen lainnya.</p>
+            
+            <div id="diaryEntriesContainer">
+                </div>
+
+            <div class="text-center mt-8">
+                <button onclick="addDiaryEntryPrompt()" class="cute-btn bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full">
+                    <i class="fas fa-book-open mr-2"></i> Tambah Diary
+                </button>
+            </div>
+        </section>
+
+        ---
+
+        <section id="messages" class="message-box p-8 rounded-3xl shadow-2xl mb-16 relative">
+            <h2 class="text-4xl font-bold text-center text-white mb-6 custom-font">A Heartfelt Message from HanTA to Uwiiiddd <i class="fas fa-comment-dots ml-2"></i></h2>
+            <div id="mainMessageContent" contenteditable="false" class="text-white text-lg text-center mb-6 leading-relaxed editable-content custom-font-4 focus:outline-none focus:ring-2 focus:ring-pink-300 p-2 rounded-md transition-all duration-200">
+                <p>Uwiiiddd,
+Kamu itu matahari aku pas pagi, bulan aku pas malam, dan bintang-bintang kecil yang nemenin aku pas kangen banget. Walaupun kita LDR—kamu di Mojokerto, aku di Jakarta—rasanya hati kita tetap deket banget. Kamu lengkapi hidup aku dengan cara yang gak pernah aku kira. Semua tantangan yang kita lewatin, meski dari jauh, tetep kerasa bareng. Dan setiap momen bahagia jadi makin spesial karena ada kamu yang nemenin dari ujung sana.</p>
+                <p class="mt-4">Makasih udah jadi pasangan yang luar biasa, sahabat terbaik, dan soulmate yang selalu aku butuhin. Senyum kamu di video call itu obat paling ampuh buat hari-hari aku yang capek. Suara kamu bisa langsung bikin tenang, dan kata-kata kamu... selalu pas di hati. Aku sayang banget semua hal kecil yang kita lakuin—chat tengah malam, kirim stiker lucu, sampe nanya “udah makan belum?” yang nggak pernah bosen aku dengerin.</p>
+                <p class="mt-4">LDR ini nggak gampang, tapi kamu bikin semuanya berasa layak diperjuangin. Kamu ngajarin aku arti sabar, arti cinta yang gak harus selalu bareng fisik, tapi tetep kuat karena hati kita nyambung. Aku janji bakal selalu ada buat kamu—dengerin kamu cerita, dukung semua hal yang kamu lagi kejar, dan tetep jadi tempat pulang kamu, meskipun sementara ini masih lewat layar.</p>
+                <p class="mt-4">Aku sayang kamu lebih dari yang bisa aku tulis, lebih dari semua kata manis yang pernah ada. Dan nanti... saat kita ketemu lagi di Jakarta, kita puas-puasin waktu bareng. Main ke mana aja, ketawa sampai lupa waktu, dan bikin memori baru yang lebih seru.</p>
+                <p class="mt-4">Selalu dan selamanya buat kamu, Uwiiiddd yang paling aku kangenin. ❤️</p>
+                </div>
+            <div class="text-center mt-4">.
+                <button id="editMainMessageBtn" onclick="toggleEditMainMessage()" class="cute-btn bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full">
+                    <i class="fas fa-edit mr-2"></i> Edit Pesan
+                </button>
+            </div>
+            <div class="text-center flex justify-center flex-wrap gap-4 mt-6">
+                <img src="photo/love-stiker.png" alt="Love sticker" class="w-24 h-24 inline-block sticker heartbeat">
+                <img src="photo/love-stiker.png" alt="Heart sticker" class="w-24 h-24 inline-block sticker float" style="animation-delay: 0.3s;">
+                <img src="photo/star-stiker.png" alt="Star sticker" class="w-24 h-24 inline-block sticker twinkle" style="animation-delay: 0.6s;">
+                <img src="photo/flower-stiker.png" alt="Flower sticker" class="w-24 h-24 inline-block sticker rotate" style="animation-duration: 5s;">
+            </div>
+        </section>
+
+        ---
+
+        <section id="about-me" class="bg-blue-50 p-8 rounded-3xl shadow-2xl mb-16 border-4 border-blue-200 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 text-blue-200 text-9xl opacity-20 rotate">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-center text-blue-600 mb-8 slide-in custom-font">Mengenal : Uwiiddd & HanTA <i class="fas fa-users ml-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Pengenalan singkat Uwiiddd & HanTA </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-pink-400">
+                    <h3 class="text-2xl font-bold text-pink-600 mb-4 flex items-center">About Uwiiddd <i class="fas fa-male ml-2"></i></h3>
+                    <div id="aboutHantaContent" contenteditable="false" class="editable-content text-gray-700 leading-relaxed custom-font-4 focus:outline-none focus:ring-2 focus:ring-pink-300 p-2 rounded-md transition-all duration-200">
+                        <p class="mb-3">Sayanggg,, kalau ada waktu luang tulis disini yaa kamu tu gimana sih orangnyaaa? menurut kamu sendiri, atau kita saling ngobrol terkait ini juga boleh</p>
+                        <p class="mb-3">Masih Kosong</p>
+                        <p>Masih Kosong</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button id="editAboutHantaBtn" onclick="toggleEditAboutHanta()" class="cute-btn bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-full text-sm">
+                            <i class="fas fa-edit mr-2"></i> Edit About Uwiiddd
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-400">
+                    <h3 class="text-2xl font-bold text-purple-600 mb-4 flex items-center">About HanTA <i class="fas fa-handshake ml-2"></i></h3>
+                    <div id="coupleDynamicsContent" contenteditable="false" class="editable-content text-gray-700 leading-relaxed custom-font-4 focus:outline-none focus:ring-2 focus:ring-purple-300 p-2 rounded-md transition-all duration-200">
+                        <p class="mb-3"> Nanti aku juga tuliss disini tentang diri aku sendirii, atau kamu mau ngegambarin aku tuh gimanaa?</p>
+                        <p class="mb-3">Masih Kosong</p>
+                        <p>Masih Kosong</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button id="editCoupleDynamicsBtn" onclick="toggleEditCoupleDynamics()" class="cute-btn bg-purple-400 hover:bg-purple-500 text-white px-6 py-2 rounded-full text-sm">
+                            <i class="fas fa-edit mr-2"></i> Edit About HanTA
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="bg-pink-100 p-8 rounded-3xl shadow-2xl mb-16 border-4 border-pink-300 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 text-pink-200 text-9xl opacity-20 rotate">
+                <i class="fas fa-comment"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-center text-pink-600 mb-8 slide-in custom-font">Sayanggg, sebelum keluar dari halaman ini, Tulis Pesann dongg <i class="fas fa-pencil-alt ml-2"></i></h2>
+            <p class="text-center text-gray-600 mb-10 custom-font-4">Tulis deh perasaan kamu, kenangan, atau harapan buat masa depan kita. Kayak kapsul waktu yang bisa kita buka nanti!</p>
+            
+            <form id="guestbookForm" class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow">
+                <div class="mb-4">
+                    <label for="guestName" class="block text-gray-700 text-sm font-bold mb-2">Nama Kamu (Uwiiiddd / HanTA):</label>
+                    <input type="text" id="guestName" name="guestName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-pink-300" placeholder="e.g., Your Beloved">
+                </div>
+                <div class="mb-6">
+                    <label for="guestMessage" class="block text-gray-700 text-sm font-bold mb-2">Curahan Hati Kamu:</label>
+                    <textarea id="guestMessage" name="guestMessage" rows="7" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline resize-none focus:ring-2 focus:ring-pink-300" placeholder="Write your sweet message, a memory, or a dream for us..."></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="cute-btn bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline">
+                        <i class="fas fa-paper-plane mr-2"></i> Kirim Love Letter
+                    </button>
+                    <button type="button" onclick="clearGuestbook()" class="cute-btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline ml-4">
+                        <i class="fas fa-trash-alt mr-2"></i> Hapus Semua Pesan
+                    </button>
+                </div>
+            </form>
+
+            <div id="guestbookMessages" class="mt-8 space-y-4 max-w-xl mx-auto">
+                </div>
+        </section>
+
+    </div>
+
+    <footer class="bg-pink-600 text-white text-center py-8">
+        <p class="text-lg">&copy; 2025 Uwiiiddd & HanTA's Endless Love Journey. Crafted with infinite love and all my heart for my beloved Uwiiiddd. <i class="fas fa-heart text-red-300 animate-pulse"></i></p>
+        <div class="flex justify-center space-x-4 mt-3">
+            <a href="#" class="text-white hover:text-pink-200 transition text-2xl"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white hover:text-pink-200 transition text-2xl"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white hover:text-pink-200 transition text-2xl"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white hover:text-pink-200 transition text-2xl"><i class="fab fa-github"></i></a>
+        </div>
+        <p class="text-sm mt-4 opacity-80 custom-font-4">"You are my today and all of my tomorrows." - Leo Christopher</p>
+    </footer>
+
+    <div id="fullPhotoModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="relative bg-white p-4 rounded-lg shadow-xl max-w-2xl w-full">
+            <button onclick="closeFullPhotoModal()" class="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-3xl">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <img id="modalPhoto" src="" alt="Full Photo" class="w-full h-auto rounded-lg">
+            <p id="modalPhotoCaption" class="text-center mt-4 text-gray-800 text-xl font-semibold"></p>
+        </div>
+    </div>
+
+    <script>
+        // --- Core Functions & Global Variables ---
+        const ourSong = document.getElementById('ourSong');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeSpan = document.getElementById('currentTime');
+        const totalTimeSpan = document.getElementById('totalTime');
+        const volumeControl = document.getElementById('volumeControl');
+        const currentSongTitle = document.getElementById('currentSongTitle');
+
+        let currentLove = 0; // For Love Meter
+        let countdownInterval; // For Countdown Timer
+        const loveMeterBar = document.getElementById('loveMeter');
+        const loveMeterNeedle = document.querySelector('.love-meter-needle');
+        const loveResult = document.getElementById('loveResult');
+
+        // Data storage (using Local Storage for persistence)
+        let timelineEvents = JSON.parse(localStorage.getItem('timelineEvents')) || [
+            { id: Date.now() + 1, date: "Febuari 25, 2025", 
+                title: "Waktu Kamu Mutusin untuk Pergi ke Mojokerto", 
+                description: "Aku masih inget banget, kamu kekeh banget buat ke mojokerto, aku engga tau alasan yang kuat kamu untuk berani banget pergi jauh ke mojokerto itu apa, sampai pada waktu itu kamu tuh cerita ke aku, kalau disini atau lebih tepatnya di jakarta kamu itu ngerasa kurang nyaman, dann salah satunya juga buat ngindarin masalah dari ex kamu.. waktu itu aku pingin banget nganterin kamu, karna aku tau waktu untuk buat ketemu langsung lagi itu bakalan lama banget, jadinya aku selalu nyuruh kamu bilang untuk bisa ditunda dulu engga, nanti aja berangkatnya pas aku ada waktu libur gituh,biar aku bisa nganterin kamu sampe ke mojokerto,,  tapi kamunya kekeh untuk mau di hari itu jadii yasudahlahh aku engga bisa ngelarang kamu juga kan, Alhamdullilah kamu sampai di tempat tujuan dengan selamat, dan makasih juga udah ngasih aku waktu buat nemenin kamu walau sekedar lewat pesan chatt, tapi itu cukup ko buat aku.", 
+                location: "WhatsApp, Jakarta - Mojokerto" },
+        ];
+
+        let galleryPhotos = JSON.parse(localStorage.getItem('galleryPhotos')) || [
+            { id: Date.now() + 10, src: "https://i.pinimg.com/736x/ed/5b/ae/ed5bae3d31b8918b8e821496c443ac5f.jpg", 
+            fullSrc: "https://i.pinimg.com/736x/ed/5b/ae/ed5bae3d31b8918b8e821496c443ac5f.jpg", 
+            alt: "Sayang-1", 
+            caption: "Waktu itu kamu ngirim ini, karna aku waktu itu ss foto profile kamu wkwkwk, terus akhirnya dikirim foto ini dehhh, ucu bangett anjayyy cakepnyoo", 
+            date: "18 Mei 2025" },
+
+            { id: Date.now() + 11, src: "https://i.pinimg.com/736x/31/b9/1c/31b91c2dd63371a0fbeb5cdca42675a5.jpg", 
+            fullSrc: "https://i.pinimg.com/736x/31/b9/1c/31b91c2dd63371a0fbeb5cdca42675a5.jpg", 
+            alt: "Sayang-2", 
+            caption: "Senengg bangett aku anjayy, dikirimin buaaaanyakkk bangett fotoo sama videoo waktu hari itu tepatnya tanggal 18-05-2025,, karna disitu kamu bikin konten, bikin draft gitu di tiktok buaaanyakk cekalii, akhirnya dikirim ke akuu semuanyaa, APA GA KESENENGAN AKUNYA ANJAYY, SENENG BANGETT LAHHH", 
+            date: "18 Mei 2025" },
+
+        ];
+
+        let wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [
+            { id: Date.now() + 20, text: "Makannn Crofffleee Banreggg", completed: false },
+            { id: Date.now() + 21, text: "MAUUUU KEE DUFANNNN", completed: false },
+            { id: Date.now() + 22, text: "Nyobainnn Gelatoo", completed: false },
+            { id: Date.now() + 23, text: "JALANNN JALANNNN", completed: false },
+            { id: Date.now() + 24, text: "AKUU MAU COBAINN SEAFOODDD BARENG KAMUUU", completed: false }
+        ];
+
+        let coupons = JSON.parse(localStorage.getItem('coupons')) || [
+            { id: Date.now() + 30, title: "24 Jam Kupon Telponan Sama Kamu", 
+            description: "Kupon ini berlaku kapanpun, kalau kamu lagi butuh banget ditemenin sama aku, hehehe", 
+            code: "SAMAKAMU" },
+
+        ];
+
+        let memoryCards = JSON.parse(localStorage.getItem('memoryCards')) || [
+            { id: Date.now() + 40, text: "Sampai detik ini bisa kenal kamnu dan bareng kamu, itu udah jadi suatu kebahagiaan buat aku!", 
+            date: "🎨 Dari awal kenal Sampai Seterussnyaa..", 
+            rotate: -3 },
+            { id: Date.now() + 41, text: "Makasih yaa dan maafin aku ya sayangg, waktu itu kamu nangis pas main mobile legends on mic, dan akunya gabisa ngapa-ngapain, aku minta maaf sayangg,, kamuu hebat bangett bisa sekuatt itu sayangg, proud of youu.", 
+            date: "🍣 Aku lupa sayangg tanggallnyaa, maafin yaa", 
+            rotate: 2 },
+            { id: Date.now() + 42, text: "Pertama kali video call sama kamu, jujur yaa, ya allah aku seneng bangett", 
+            date: "🌅 Maret 26 2025",
+             rotate: -1 }
+        ];
+
+        let qaItems = JSON.parse(localStorage.getItem('qaItems')) || [
+            { id: Date.now() + 50, 
+                question: "Kenapa bisa suka sama kamu dan dari kapan?", 
+                answer: "Kalau dari aku ya, waktu dulu ketika aku sama kamu belum sedeket ini, aku udah suka sama kamu, kadang aku suka chat duluan ke kamu ~maen ga~ wkwkw, biar bisa mabar aja itu mah,, cumann hmm gimana yaa, aku masih belum bisa ngungkapin itu karna aku masih butuh waktu untuk mahamin kamu, dan aku juga masih banyak pikiran, jujur aku takut banget kalau asing, aku bener-bener takut gada komunikasi lagi, tapi ketakutan itu malah ngebuat aku jadi ada space ke kamu. Kalau ditanya kenapa aku bisa suka, aku juga bingung sayangg, aku engga ngeliat kamu dari segi apapun, bahkan waktu itu aku gatau suara kamu, gatau kamu itu gimana, tapi kenapa ya bisa sesuka itu bisa seseneng itu,, maafin ya aku kaku banget waktu itu dan ga peka banget, jadinya keduluan yang lain :),, but it's okeyy mungkin emang belum waktunya dan belum jalannya juga untuk bisa bareng sama kamu di kala itu,, sekarang bisa sama kamu senengnya ga ketolong anjayy, kecintaan banget akuuu sama kamuuuu" },
+
+        ];
+
+        let diaryEntries = JSON.parse(localStorage.getItem('diaryEntries')) || [
+            { id: Date.now() + 60, title: "Diary Pertama Aku", 
+            text: "Sekarang dan seterusnya, pingin aja gitu bisa bareng bareng terus, ngejalanin semuanya bareng bareng", 
+            date: "6 Juni 2025" },
+
+        ];
+
+        let loveLetterContent = localStorage.getItem('loveLetterContent') || document.getElementById('loveLetterContent').innerHTML;
+        let mainMessageContent = localStorage.getItem('mainMessageContent') || document.getElementById('mainMessageContent').innerHTML;
+        let aboutHantaContent = localStorage.getItem('aboutHantaContent') || document.getElementById('aboutHantaContent').innerHTML;
+        let coupleDynamicsContent = localStorage.getItem('coupleDynamicsContent') || document.getElementById('coupleDynamicsContent').innerHTML;
+        let currentPlayingSong = JSON.parse(localStorage.getItem('currentPlayingSong')) || { title: "Perfect - Ed Sheeran", src: "lagu/perfek.mp3" };
+
+
+        // --- Utility Functions for Persistence ---
+        function saveToLocalStorage(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        function loadInitialContent() {
+            renderTimeline();
+            renderGallery();
+            renderWishlist();
+            renderCoupons();
+            renderMemoryCards();
+            renderQaItems();
+            renderDiaryEntries();
+            document.getElementById('loveLetterContent').innerHTML = loveLetterContent;
+            document.getElementById('mainMessageContent').innerHTML = mainMessageContent;
+            document.getElementById('aboutHantaContent').innerHTML = aboutHantaContent;
+            document.getElementById('coupleDynamicsContent').innerHTML = coupleDynamicsContent;
+            
+            // Music player initial state
+            ourSong.src = currentPlayingSong.src;
+            currentSongTitle.textContent = currentPlayingSong.title;
+            ourSong.load(); // Load the new source
+        }
+
+        // --- Music Player Functions ---
+        function startMusic() {
+            if (ourSong.paused) {
+                ourSong.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                ourSong.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function togglePlayPause() {
+            startMusic();
+        }
+
+        ourSong.addEventListener('timeupdate', () => {
+            if (!isNaN(ourSong.duration)) {
+                const progress = (ourSong.currentTime / ourSong.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeSpan.textContent = formatTime(ourSong.currentTime);
+            }
+        });
+
+        ourSong.addEventListener('loadedmetadata', () => {
+            if (!isNaN(ourSong.duration)) {
+                totalTimeSpan.textContent = formatTime(ourSong.duration);
+            }
+        });
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function setVolume(volume) {
+            ourSong.volume = volume;
+        }
+
+        function changeSongPrompt() {
+            const newSongTitle = prompt("Enter the new song title (e.g., 'A Thousand Years - Christina Perry'):");
+            if (newSongTitle === null) return; // User cancelled
+
+            const newSongSrc = prompt("Enter the URL for the new song (MP3 format, e.g., 'lagu/perfek.mp3'):");
+            if (newSongSrc === null) return; // User cancelled
+
+            if (newSongTitle && newSongSrc) {
+                currentPlayingSong = { title: newSongTitle, src: newSongSrc };
+                saveToLocalStorage('currentPlayingSong', currentPlayingSong);
+                ourSong.src = newSongSrc;
+                currentSongTitle.textContent = newSongTitle;
+                ourSong.load();
+                ourSong.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                alert("Song changed successfully!");
+            } else {
+                alert("Both song title and URL are required!");
+            }
+        }
+
+
+        // --- Background Animations ---
+        function createFloatingHearts(count) {
+            const container = document.body;
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('i');
+                heart.className = 'fas fa-heart text-red-400 absolute opacity-75';
+                heart.style.fontSize = `${Math.random() * 2 + 1}rem`;
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.top = `${Math.random() * 100}vh`;
+                heart.style.animation = `float ${Math.random() * 5 + 3}s ease-in-out infinite`;
+                heart.style.animationDelay = `${Math.random() * 2}s`;
+                heart.style.zIndex = '1';
+                container.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 8000); // Remove after 8 seconds
+            }
+        }
+        const petalsContainer = document.getElementById('petals-container');
+        const petalImages = [ /* ... (data tetap sama) ... */ ];
+        function createPetal() { /* ... (fungsi tetap sama) ... */ }
+        function createFallingStar() { /* ... (fungsi tetap sama) ... */ }
+
+        // --- Navigation ---
+        document.getElementById('mobile-menu-button').addEventListener('click', function() { /* ... (fungsi tetap sama) ... */ });
+        document.querySelectorAll('#mobile-menu a').forEach(link => { /* ... (fungsi tetap sama) ... */ });
+
+        // --- Love Meter Functions ---
+        function addLove(amount, action) {
+            currentLove = Math.min(100, currentLove + amount);
+            loveMeterBar.style.width = `${currentLove}%`;
+            const rotation = (currentLove / 100) * 180 - 90;
+            loveMeterNeedle.style.transform = `rotate(${rotation}deg)`;
+            
+            // Temporary message for the action
+            loveResult.textContent = `You added ${amount}% love with a ${action}! Current: ${currentLove}%`;
+            loveResult.classList.remove('hidden');
+            loveResult.classList.add('shake');
+            setTimeout(() => {
+                loveResult.classList.remove('shake');
+                loveResult.classList.add('hidden');
+            }, 1500); // Hide after 1.5 seconds
+        }
+        function measureLove() {
+            let message = "";
+            if (currentLove < 25) {
+                message = "Our love is just beginning to blossom! Let's nurture it more! 🌷";
+            } else if (currentLove < 50) {
+                message = "Our love is growing beautifully! So many sweet memories ahead! 💕";
+            } else if (currentLove < 75) {
+                message = "Our love is strong and vibrant! We're truly a perfect match! ✨";
+            } else if (currentLove < 100) {
+                message = "Our love is overflowing! You are my everything! 🥰";
+            } else {
+                message = "Our love is OFF THE CHARTS! Pure, endless, and boundless love! ❤️❤️❤️";
+                createConfetti(100); // More confetti for max love
+            }
+            loveResult.textContent = message;
+            loveResult.classList.remove('hidden');
+            loveResult.classList.add('pulse');
+            setTimeout(() => {
+                loveResult.classList.remove('pulse');
+            }, 2000);
+        }
+        function createConfetti(num) {
+            const confettiColors = ['#ff6b8b', '#a18cd1', '#fbc2eb', '#ffe66d', '#6dffe6', '#b5e8b5', '#c3cfe2'];
+            for (let i = 0; i < num; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'absolute rounded-full';
+                confetti.style.width = `${Math.random() * 10 + 5}px`;
+                confetti.style.height = confetti.style.width;
+                confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.top = `-10px`;
+                confetti.style.animation = `confettiFall ${Math.random() * 3 + 2}s linear forwards`;
+                confetti.style.animationDelay = `${Math.random() * 1.5}s`;
+                confetti.style.setProperty('--endX', `${(Math.random() - 0.5) * 500}px`);
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // --- Scratch Off Functionality (Improved with Canvas) ---
+        const scratchArea = document.getElementById('scratchArea');
+        const scratchCanvas = document.getElementById('scratchCanvas');
+        const secretMessage = document.getElementById('secretMessage');
+        const ctx = scratchCanvas.getContext('2d');
+        let isScratching = false;
+        let revealedPercentage = 0;
+
+        function initializeScratchOff() {
+            // Ensure canvas matches parent div size
+            scratchCanvas.width = scratchArea.offsetWidth;
+            scratchCanvas.height = scratchArea.offsetHeight;
+
+            // Draw the scratchable overlay
+            ctx.fillStyle = '#ccc'; // Grey color for scratch layer
+            ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+            
+            // Add a texture to the scratch layer
+            ctx.globalCompositeOperation = 'source-over'; // Default
+            ctx.fillStyle = '#e0e0e0';
+            for (let i = 0; i < scratchCanvas.width; i += 20) {
+                ctx.fillRect(i, 0, 10, scratchCanvas.height);
+            }
+            
+            // Text hint on scratch layer (optional)
+            ctx.fillStyle = '#888';
+            ctx.font = '24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Scratch me!', scratchCanvas.width / 2, scratchCanvas.height / 2);
+
+            ctx.globalCompositeOperation = 'destination-out'; // This makes drawn areas transparent
+            
+            scratchArea.classList.remove('revealed');
+            secretMessage.classList.add('hidden');
+            revealedPercentage = 0;
+            scratchArea.style.cursor = 'grab';
+        }
+        function getTouchPos(canvasDom, touchEvent) {
+            const rect = canvasDom.getBoundingClientRect();
+            return {
+                x: touchEvent.touches[0].clientX - rect.left,
+                y: touchEvent.touches[0].clientY - rect.top
+            };
+        }
+
+        function getMousePos(canvasDom, mouseEvent) {
+            const rect = canvasDom.getBoundingClientRect();
+            return {
+                x: mouseEvent.clientX - rect.left,
+                y: mouseEvent.clientY - rect.top
+            };
+        }
+
+        function scratch(x, y) {
+            const brushSize = 30; // Size of the scratch "brush"
+            ctx.beginPath();
+            ctx.arc(x, y, brushSize, 0, Math.PI * 2, true);
+            ctx.fill();
+            calculateRevealedPercentage();
+        }
+
+        function calculateRevealedPercentage() {
+            const imageData = ctx.getImageData(0, 0, scratchCanvas.width, scratchCanvas.height);
+            const pixels = imageData.data;
+            let transparentPixels = 0;
+            for (let i = 0; i < pixels.length; i += 4) {
+                if (pixels[i + 3] === 0) { // Check alpha channel for transparency
+                    transparentPixels++;
+                }
+            }
+            revealedPercentage = (transparentPixels / (scratchCanvas.width * scratchCanvas.height)) * 100;
+            if (revealedPercentage > 40) { // Reveal message when 40% scratched
+                scratchArea.classList.add('revealed');
+                secretMessage.classList.remove('hidden');
+                scratchArea.style.cursor = 'default';
+            }
+        }
+
+        scratchCanvas.addEventListener('mousedown', (e) => {
+            isScratching = true;
+            scratch(getMousePos(scratchCanvas, e).x, getMousePos(scratchCanvas, e).y);
+        });
+        scratchCanvas.addEventListener('mousemove', (e) => {
+            if (!isScratching) return;
+            scratch(getMousePos(scratchCanvas, e).x, getMousePos(scratchCanvas, e).y);
+        });
+        scratchCanvas.addEventListener('mouseup', () => {
+            isScratching = false;
+        });
+        scratchCanvas.addEventListener('mouseleave', () => {
+            isScratching = false;
+        });
+
+        // Touch events
+        scratchCanvas.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent scrolling
+            isScratching = true;
+            scratch(getTouchPos(scratchCanvas, e).x, getTouchPos(scratchCanvas, e).y);
+        });
+        scratchCanvas.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent scrolling
+            if (!isScratching) return;
+            scratch(getTouchPos(scratchCanvas, e).x, getTouchPos(scratchCanvas, e).y);
+        });
+        scratchCanvas.addEventListener('touchend', () => {
+            isScratching = false;
+        });
+
+        function showHiddenMessage() {
+            const hiddenMessageSection = document.getElementById('hiddenMessage');
+            hiddenMessageSection.classList.toggle('hidden');
+            if (!hiddenMessageSection.classList.contains('hidden')) {
+                initializeScratchOff(); // Re-initialize when shown
+            }
+            hiddenMessageSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // --- Photo Gallery Modal ---
+        const fullPhotoModal = document.getElementById('fullPhotoModal');
+        const modalPhoto = document.getElementById('modalPhoto');
+        const modalPhotoCaption = document.getElementById('modalPhotoCaption');
+
+        function showFullPhoto(src, caption) { /* ... (fungsi tetap sama) ... */ }
+        function closeFullPhotoModal() { /* ... (fungsi tetap sama) ... */ }
+        fullPhotoModal.addEventListener('click', (e) => { /* ... (listener tetap sama) ... */ });
+
+        // --- Timeline CRUD Functions ---
+        function renderTimeline() {
+            const container = document.getElementById('timelineContainer');
+            container.innerHTML = '';
+            timelineEvents.forEach(event => {
+                const eventDiv = document.createElement('div');
+                eventDiv.className = 'timeline-item';
+                eventDiv.setAttribute('data-id', event.id);
+                eventDiv.innerHTML = `
+                    <h3 class="text-2xl font-bold text-pink-600">${event.title} <span class="text-sm text-gray-500 ml-3">📅 ${event.date}</span></h3>
+                    <p class="text-gray-700 mt-2">${event.description}</p>
+                    ${event.location ? `<div class="flex items-center mt-2"><span class="text-sm text-gray-500 mr-4">📍 ${event.location}</span></div>` : ''}
+                    <div class="timeline-actions">
+                        <button onclick="editTimelineEventPrompt(${event.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteTimelineEvent(${event.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                container.appendChild(eventDiv);
+            });
+            saveToLocalStorage('timelineEvents', timelineEvents);
+        }
+
+        function addTimelineEventPrompt() {
+            const title = prompt("Enter title for the new memory:");
+            if (!title) return;
+            const date = prompt("Enter date for the new memory (e.g., July 1, 2025):");
+            if (!date) return;
+            const description = prompt("Enter description for the new memory:");
+            if (!description) return;
+            const location = prompt("Enter location for the new memory (optional):");
+
+            const newEvent = {
+                id: Date.now(),
+                title,
+                date,
+                description,
+                location: location || ""
+            };
+            timelineEvents.push(newEvent);
+            renderTimeline();
+        }
+
+        function editTimelineEventPrompt(id) {
+            const event = timelineEvents.find(e => e.id === id);
+            if (!event) return;
+
+            const newTitle = prompt("Edit title:", event.title);
+            if (newTitle === null) return;
+            const newDate = prompt("Edit date:", event.date);
+            if (newDate === null) return;
+            const newDescription = prompt("Edit description:", event.description);
+            if (newDescription === null) return;
+            const newLocation = prompt("Edit location (optional):", event.location);
+
+            event.title = newTitle;
+            event.date = newDate;
+            event.description = newDescription;
+            event.location = newLocation;
+            renderTimeline();
+        }
+
+        function deleteTimelineEvent(id) {
+            if (confirm("Are you sure you want to delete this memory?")) {
+                timelineEvents = timelineEvents.filter(e => e.id !== id);
+                renderTimeline();
+            }
+        }
+
+        // --- Gallery CRUD Functions ---
+        function renderGallery() {
+            const container = document.getElementById('galleryContainer');
+            container.innerHTML = '';
+            galleryPhotos.forEach(photo => {
+                const photoDiv = document.createElement('div');
+                photoDiv.className = 'polaroid transform hover:rotate-1';
+                photoDiv.setAttribute('data-id', photo.id);
+                photoDiv.innerHTML = `
+                    <img src="${photo.src}" alt="${photo.alt}" class="w-full h-64 object-cover interactive-photo" onclick="showFullPhoto('${photo.fullSrc}', '${photo.caption}')">
+                    <p class="text-center mt-2 text-gray-700 font-medium">${photo.caption}</p>
+                    <p class="text-center text-sm text-gray-500">${photo.date}</p>
+                    <div class="polaroid-actions">
+                        <button onclick="editGalleryPhotoPrompt(${photo.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteGalleryPhoto(${photo.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                container.appendChild(photoDiv);
+            });
+            saveToLocalStorage('galleryPhotos', galleryPhotos);
+        }
+
+        function addPhotoToGalleryPrompt() {
+            const src = prompt("Enter small image URL (e.g., https://via.placeholder.com/300):");
+            if (!src) return;
+            const fullSrc = prompt("Enter large image URL (for modal, e.g., https://via.placeholder.com/800):");
+            if (!fullSrc) return;
+            const alt = prompt("Enter alt text for image:");
+            if (!alt) return;
+            const caption = prompt("Enter photo caption:");
+            if (!caption) return;
+            const date = prompt("Enter date for photo (e.g., Jan 2024):");
+
+            const newPhoto = {
+                id: Date.now(),
+                src,
+                fullSrc,
+                alt,
+                caption,
+                date: date || "Undated"
+            };
+            galleryPhotos.push(newPhoto);
+            renderGallery();
+        }
+
+        function editGalleryPhotoPrompt(id) {
+            const photo = galleryPhotos.find(p => p.id === id);
+            if (!photo) return;
+
+            const newSrc = prompt("Edit small image URL:", photo.src);
+            if (newSrc === null) return;
+            const newFullSrc = prompt("Edit large image URL:", photo.fullSrc);
+            if (newFullSrc === null) return;
+            const newAlt = prompt("Edit alt text:", photo.alt);
+            if (newAlt === null) return;
+            const newCaption = prompt("Edit caption:", photo.caption);
+            if (newCaption === null) return;
+            const newDate = prompt("Edit date:", photo.date);
+
+            photo.src = newSrc;
+            photo.fullSrc = newFullSrc;
+            photo.alt = newAlt;
+            photo.caption = newCaption;
+            photo.date = newDate;
+            renderGallery();
+        }
+
+        function deleteGalleryPhoto(id) {
+            if (confirm("Are you sure you want to delete this photo?")) {
+                galleryPhotos = galleryPhotos.filter(p => p.id !== id);
+                renderGallery();
+            }
+        }
+
+
+        // --- Wishlist CRUD Functions ---
+        function renderWishlist() {
+            const wishlistContainer = document.getElementById('wishlist');
+            // Keep the input field, remove only dynamic items
+            const existingItems = wishlistContainer.querySelectorAll('.wishlist-item');
+            existingItems.forEach(item => item.remove());
+
+            wishlistItems.forEach(item => {
+                const newItem = document.createElement('div');
+                newItem.className = `wishlist-item ${item.completed ? 'completed' : ''}`;
+                newItem.setAttribute('data-id', item.id);
+                newItem.innerHTML = `
+                    <input type="checkbox" id="wish-${item.id}" ${item.completed ? 'checked' : ''} onchange="toggleWish(${item.id})">
+                    <label for="wish-${item.id}" class="text-gray-800 flex-1">${item.text}</label>
+                    <div class="wishlist-actions flex gap-2">
+                        <button onclick="editWishlistItemPrompt(${item.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteWishlistItem(${item.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                // Insert before the input field
+                wishlistContainer.insertBefore(newItem, document.getElementById('newWishInput').parentNode);
+            });
+            saveToLocalStorage('wishlistItems', wishlistItems);
+        }
+
+        function addWish() {
+            const newWishInput = document.getElementById('newWishInput');
+            const wishText = newWishInput.value.trim();
+            if (wishText) {
+                const newWish = {
+                    id: Date.now(),
+                    text: wishText,
+                    completed: false
+                };
+                wishlistItems.push(newWish);
+                renderWishlist();
+                newWishInput.value = '';
+            } else {
+                alert("Please write down your wish first!");
+            }
+        }
+
+        function toggleWish(id) {
+            const item = wishlistItems.find(w => w.id === id);
+            if (item) {
+                item.completed = !item.completed;
+                renderWishlist(); // Re-render to update classes
+            }
+        }
+
+        function editWishlistItemPrompt(id) {
+            const item = wishlistItems.find(w => w.id === id);
+            if (!item) return;
+            const newText = prompt("Edit wish:", item.text);
+            if (newText === null) return;
+            if (newText.trim()) {
+                item.text = newText.trim();
+                renderWishlist();
+            } else {
+                alert("Wish cannot be empty!");
+            }
+        }
+
+        function deleteWishlistItem(id) {
+            if (confirm("Are you sure you want to delete this wish?")) {
+                wishlistItems = wishlistItems.filter(w => w.id !== id);
+                renderWishlist();
+            }
+        }
+
+        // --- Countdown Timer ---
+        let targetDate = new Date(); // Default target date, will be updated
+        let defaultAnniversaryMonth = 8; // September (0-indexed)
+        let defaultAnniversaryDay = 1;
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = targetDate.getTime() - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            if (timeLeft < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('days').textContent = "00";
+                document.getElementById('hours').textContent = "00";
+                document.getElementById('minutes').textContent = "00";
+                document.getElementById('seconds').textContent = "00";
+                document.querySelector('#future .countdown-item').parentElement.previousElementSibling.textContent = "It's our special day! Happy Anniversary! ❤️";
+                createConfetti(50); // Celebrate the special day
+            }
+        }
+
+        function setAnniversaryCountdown() {
+            const now = new Date();
+            let nextAnniversary = new Date(now.getFullYear(), defaultAnniversaryMonth, defaultAnniversaryDay);
+            if (now.getMonth() > defaultAnniversaryMonth || (now.getMonth() === defaultAnniversaryMonth && now.getDate() > defaultAnniversaryDay)) {
+                nextAnniversary.setFullYear(now.getFullYear() + 1);
+            }
+            targetDate = nextAnniversary;
+            saveToLocalStorage('countdownTargetDate', targetDate.toISOString());
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+        }
+
+        function setCustomCountdown() {
+            const customDateInput = document.getElementById('customDate');
+            const dateValue = customDateInput.value;
+            if (dateValue) {
+                const newDate = new Date(dateValue + "T00:00:00"); // Ensure UTC alignment for date only input
+                if (!isNaN(newDate.getTime())) {
+                    targetDate = newDate;
+                    saveToLocalStorage('countdownTargetDate', targetDate.toISOString());
+                    if (countdownInterval) clearInterval(countdownInterval);
+                    countdownInterval = setInterval(updateCountdown, 1000);
+                    updateCountdown();
+                    alert("Custom countdown set!");
+                    document.querySelector('#future .countdown-item').parentElement.previousElementSibling.textContent = `Until your special day on ${newDate.toLocaleDateString()}!`;
+                } else {
+                    alert("Please enter a valid date!");
+                }
+            } else {
+                alert("Please select a date first!");
+            }
+        }
+
+        function resetCountdown() {
+            localStorage.removeItem('countdownTargetDate');
+            document.getElementById('customDate').value = '';
+            setAnniversaryCountdown();
+            document.querySelector('#future .countdown-item').parentElement.previousElementSibling.textContent = "Until our **next anniversary!**";
+            alert("Countdown reset to next anniversary!");
+        }
+
+        // Load custom date if available, otherwise set anniversary
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedDate = localStorage.getItem('countdownTargetDate');
+            if (savedDate) {
+                targetDate = new Date(savedDate);
+                if (isNaN(targetDate.getTime())) { // Fallback if saved date is invalid
+                    setAnniversaryCountdown();
+                } else {
+                    // Update the custom date input if the saved date is valid
+                    const dateObj = new Date(savedDate);
+                    const year = dateObj.getFullYear();
+                    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+                    const day = String(dateObj.getDate()).padStart(2, '0');
+                    document.getElementById('customDate').value = `${year}-${month}-${day}`;
+                    if (countdownInterval) clearInterval(countdownInterval);
+                    countdownInterval = setInterval(updateCountdown, 1000);
+                    updateCountdown();
+                    document.querySelector('#future .countdown-item').parentElement.previousElementSibling.textContent = `Until your special day on ${dateObj.toLocaleDateString()}!`;
+                }
+            } else {
+                setAnniversaryCountdown();
+            }
+        });
+
+        // --- Coupon CRUD Functions ---
+        const couponsContainer = document.getElementById('couponsContainer');
+
+        function renderCoupons() {
+            couponsContainer.innerHTML = '';
+            coupons.forEach(coupon => {
+                const couponDiv = document.createElement('div');
+                couponDiv.className = 'coupon pulse';
+                couponDiv.setAttribute('data-id', coupon.id);
+                couponDiv.innerHTML = `
+                    <h4 class="text-xl font-bold text-pink-600 mb-2">${coupon.title}</h4>
+                    <p class="text-gray-700 text-sm mb-2">${coupon.description}</p>
+                    <div class="coupon-code">CODE: ${coupon.code}</div>
+                    <div class="coupon-actions">
+                        <button onclick="editCouponPrompt(${coupon.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteCoupon(${coupon.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                couponsContainer.appendChild(couponDiv);
+            });
+            saveToLocalStorage('coupons', coupons);
+        }
+
+        function addCouponPrompt() {
+            const title = prompt("Enter coupon title (e.g., 'A Romantic Dinner'):");
+            if (!title) return;
+            const description = prompt("Enter coupon description:");
+            if (!description) return;
+            const code = prompt("Enter coupon code (e.g., 'DINNERDATE'):");
+            if (!code) return;
+
+            const newCoupon = {
+                id: Date.now(),
+                title,
+                description,
+                code
+            };
+            coupons.push(newCoupon);
+            renderCoupons();
+        }
+
+        function editCouponPrompt(id) {
+            const coupon = coupons.find(c => c.id === id);
+            if (!coupon) return;
+
+            const newTitle = prompt("Edit title:", coupon.title);
+            if (newTitle === null) return;
+            const newDescription = prompt("Edit description:", coupon.description);
+            if (newDescription === null) return;
+            const newCode = prompt("Edit code:", coupon.code);
+            if (newCode === null) return;
+
+            coupon.title = newTitle;
+            coupon.description = newDescription;
+            coupon.code = newCode;
+            renderCoupons();
+        }
+
+        function deleteCoupon(id) {
+            if (confirm("Are you sure you want to delete this coupon?")) {
+                coupons = coupons.filter(c => c.id !== id);
+                renderCoupons();
+            }
+        }
+
+
+        // --- Memory Jar CRUD Functions ---
+        const memoryCardsContainer = document.getElementById('memoryCardsContainer');
+
+        function renderMemoryCards() {
+            memoryCardsContainer.innerHTML = '';
+            memoryCards.forEach(memory => {
+                const memoryDiv = document.createElement('div');
+                memoryDiv.className = 'memory-card';
+                memoryDiv.setAttribute('data-id', memory.id);
+                // Assign a random rotation or use existing one if editing
+                const randomRotate = memory.rotate !== undefined ? memory.rotate : (Math.random() * 6) - 3;
+                memoryDiv.style.setProperty('--rotate-deg', `${randomRotate}deg`);
+                memoryDiv.innerHTML = `
+                    <p class="text-gray-800 text-lg mb-2 custom-font">${memory.text}</p>
+                    <span class="text-sm text-gray-600">${memory.date || 'Undated'}</span>
+                    <div class="memory-actions">
+                        <button onclick="editMemoryCardPrompt(${memory.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteMemoryCard(${memory.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                memoryCardsContainer.appendChild(memoryDiv);
+            });
+            saveToLocalStorage('memoryCards', memoryCards);
+        }
+
+        function addMemoryCardPrompt() {
+            const text = prompt("What new sweet memory would you like to add?");
+            if (!text) return;
+            const date = prompt("What date was this memory? (e.g., Jan 1, 2025)");
+
+            const newMemory = {
+                id: Date.now(),
+                text,
+                date: date || "Undated",
+                rotate: (Math.random() * 6) - 3 // Assign random rotation on add
+            };
+            memoryCards.push(newMemory);
+            renderMemoryCards();
+        }
+
+        function editMemoryCardPrompt(id) {
+            const memory = memoryCards.find(m => m.id === id);
+            if (!memory) return;
+
+            const newText = prompt("Edit memory text:", memory.text);
+            if (newText === null) return;
+            const newDate = prompt("Edit memory date:", memory.date);
+            if (newDate === null) return;
+
+            memory.text = newText;
+            memory.date = newDate;
+            renderMemoryCards();
+        }
+
+        function deleteMemoryCard(id) {
+            if (confirm("Are you sure you want to delete this memory?")) {
+                memoryCards = memoryCards.filter(m => m.id !== id);
+                renderMemoryCards();
+            }
+        }
+
+        // --- Q&A CRUD Functions ---
+        const qaItemsContainer = document.getElementById('qaItemsContainer');
+
+        function renderQaItems() {
+            qaItemsContainer.innerHTML = '';
+            qaItems.forEach(item => {
+                const qaDiv = document.createElement('div');
+                qaDiv.className = 'qa-item';
+                qaDiv.setAttribute('data-id', item.id);
+                qaDiv.innerHTML = `
+                    <p class="question">${item.question}</p>
+                    <p class="answer">${item.answer}</p>
+                    <div class="qa-actions">
+                        <button onclick="editQaItemPrompt(${item.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteQaItem(${item.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                qaItemsContainer.appendChild(qaDiv);
+            });
+            saveToLocalStorage('qaItems', qaItems);
+        }
+
+        function addQaItemPrompt() {
+            const question = prompt("What new question would you like to add?");
+            if (!question) return;
+            const answer = prompt("What's the answer to that question?");
+            if (!answer) return;
+
+            const newQa = {
+                id: Date.now(),
+                question,
+                answer
+            };
+            qaItems.push(newQa);
+            renderQaItems();
+        }
+
+        function editQaItemPrompt(id) {
+            const item = qaItems.find(i => i.id === id);
+            if (!item) return;
+
+            const newQuestion = prompt("Edit question:", item.question);
+            if (newQuestion === null) return;
+            const newAnswer = prompt("Edit answer:", item.answer);
+            if (newAnswer === null) return;
+
+            item.question = newQuestion;
+            item.answer = newAnswer;
+            renderQaItems();
+        }
+
+        function deleteQaItem(id) {
+            if (confirm("Are you sure you want to delete this Q&A item?")) {
+                qaItems = qaItems.filter(i => i.id !== id);
+                renderQaItems();
+            }
+        }
+
+
+        // --- Blog/Diary Entry CRUD Functions ---
+        const diaryEntriesContainer = document.getElementById('diaryEntriesContainer');
+
+        function renderDiaryEntries() {
+            diaryEntriesContainer.innerHTML = '';
+            diaryEntries.forEach(entry => {
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'diary-entry-item'; // Use specific class name
+                entryDiv.setAttribute('data-id', entry.id);
+                entryDiv.innerHTML = `
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">${entry.title}</h3>
+                    <p class="text-gray-700 leading-relaxed indent-8">${entry.text}</p>
+                    <span class="date-stamp">${entry.date}</span>
+                    <div class="diary-actions">
+                        <button onclick="editDiaryEntryPrompt(${entry.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteDiaryEntry(${entry.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                diaryEntriesContainer.appendChild(entryDiv);
+            });
+            saveToLocalStorage('diaryEntries', diaryEntries);
+        }
+
+        function addDiaryEntryPrompt() {
+            const title = prompt("Enter title for the new diary entry:");
+            if (!title) return;
+            const text = prompt("Write your new diary entry here:");
+            if (!text) return;
+            const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const newEntry = {
+                id: Date.now(),
+                title,
+                text,
+                date
+            };
+            diaryEntries.unshift(newEntry); // Add to top
+            renderDiaryEntries();
+        }
+
+        function editDiaryEntryPrompt(id) {
+            const entry = diaryEntries.find(e => e.id === id);
+            if (!entry) return;
+
+            const newTitle = prompt("Edit entry title:", entry.title);
+            if (newTitle === null) return;
+            const newText = prompt("Edit entry text:", entry.text);
+            if (newText === null) return;
+            const newDate = prompt("Edit entry date (e.g., June 1, 2025):", entry.date);
+            if (newDate === null) return;
+
+            entry.title = newTitle;
+            entry.text = newText;
+            entry.date = newDate;
+            renderDiaryEntries();
+        }
+
+        function deleteDiaryEntry(id) {
+            if (confirm("Are you sure you want to delete this diary entry?")) {
+                diaryEntries = diaryEntries.filter(e => e.id !== id);
+                renderDiaryEntries();
+            }
+        }
+
+
+        // --- Editable Content (Love Letter, Main Message, About HanTA, Couple Dynamics) ---
+        function makeContentEditable(elementId, localStorageKey) {
+            const element = document.getElementById(elementId);
+            const editBtn = document.getElementById(`edit${elementId.charAt(0).toUpperCase() + elementId.slice(1)}Btn`);
+
+            if (element.contentEditable === 'true') {
+                // Save changes
+                element.contentEditable = 'false';
+                element.classList.remove('border-gray-300', 'bg-gray-100');
+                editBtn.innerHTML = '<i class="fas fa-edit mr-2"></i> Edit';
+                // Store in local storage
+                saveToLocalStorage(localStorageKey, element.innerHTML);
+                alert("Changes saved!");
+            } else {
+                // Enable editing
+                element.contentEditable = 'true';
+                element.classList.add('border-gray-300', 'bg-gray-100');
+                element.focus();
+                editBtn.innerHTML = '<i class="fas fa-save mr-2"></i> Save Changes';
+            }
+        }
+
+        function toggleEditLoveLetter() {
+            makeContentEditable('loveLetterContent', 'loveLetterContent');
+        }
+
+        function toggleEditMainMessage() {
+            makeContentEditable('mainMessageContent', 'mainMessageContent');
+        }
+        
+        function toggleEditAboutHanta() {
+            makeContentEditable('aboutHantaContent', 'aboutHantaContent');
+        }
+
+        function toggleEditCoupleDynamics() {
+            makeContentEditable('coupleDynamicsContent', 'coupleDynamicsContent');
+        }
+
+
+        // --- Guestbook functionality (using Local Storage for persistence) ---
+        const guestbookForm = document.getElementById('guestbookForm');
+        const guestbookMessages = document.getElementById('guestbookMessages');
+
+        function loadGuestbookMessages() {
+            const messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+            guestbookMessages.innerHTML = ''; // Clear existing
+            messages.forEach(msg => {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'bg-gray-50 p-4 rounded-lg border border-gray-200 relative group'; // Add group class for hover
+                msgDiv.setAttribute('data-id', msg.id);
+                msgDiv.innerHTML = `
+                    <p class="font-bold text-pink-600">${msg.name}</p>
+                    <p class="text-gray-700 mt-1">${msg.message}</p>
+                    <span class="text-xs text-gray-500">${msg.date}</span>
+                    <div class="absolute top-2 right-2 hidden group-hover:flex gap-2">
+                        <button onclick="editGuestbookMessagePrompt(${msg.id})" class="text-blue-500 hover:text-blue-700 text-sm"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteGuestbookMessage(${msg.id})" class="text-red-500 hover:text-red-700 text-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                `;
+                guestbookMessages.appendChild(msgDiv);
+            });
+        }
+
+        guestbookForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value.trim();
+            const message = document.getElementById('guestMessage').value.trim();
+
+            if (name && message) {
+                const newMessage = {
+                    id: Date.now(),
+                    name: name,
+                    message: message,
+                    date: new Date().toLocaleDateString('en-US')
+                };
+
+                const messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+                messages.unshift(newMessage); // Add new message to the beginning
+                localStorage.setItem('guestbookMessages', JSON.stringify(messages));
+
+                loadGuestbookMessages(); // Reload all messages
+                document.getElementById('guestName').value = '';
+                document.getElementById('guestMessage').value = '';
+            } else {
+                alert('Please enter your name and message!');
+            }
+        });
+
+        function editGuestbookMessagePrompt(id) {
+            let messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+            const messageToEdit = messages.find(msg => msg.id === id);
+            if (!messageToEdit) return;
+
+            const newName = prompt("Edit name:", messageToEdit.name);
+            if (newName === null) return;
+            const newMessageText = prompt("Edit message:", messageToEdit.message);
+            if (newMessageText === null) return;
+
+            messageToEdit.name = newName.trim();
+            messageToEdit.message = newMessageText.trim();
+            localStorage.setItem('guestbookMessages', JSON.stringify(messages));
+            loadGuestbookMessages();
+        }
+
+        function deleteGuestbookMessage(id) {
+            if (confirm("Are you sure you want to delete this guestbook message?")) {
+                let messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+                messages = messages.filter(msg => msg.id !== id);
+                localStorage.setItem('guestbookMessages', JSON.stringify(messages));
+                loadGuestbookMessages();
+            }
+        }
+
+        function clearGuestbook() {
+            if (confirm("Are you sure you want to clear all guestbook messages? This cannot be undone.")) {
+                localStorage.removeItem('guestbookMessages');
+                guestbookMessages.innerHTML = ''; // Clear display
+                alert("Guestbook cleared!");
+            }
+        }
+        
+        // --- Initialization on Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Background elements
+            for (let i = 0; i < 30; i++) { createPetal(); }
+            for (let i = 0; i < 10; i++) { createFallingStar(); }
+
+            // Scratch-off init
+            initializeScratchOff();
+            window.addEventListener('resize', initializeScratchOff);
+
+            // Load all persistent content
+            loadInitialContent();
+            loadGuestbookMessages(); // Specific guestbook load
+        });
+    </script>
+</body>
+</html>
